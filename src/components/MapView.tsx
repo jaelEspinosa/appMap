@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import mapboxgl from "mapbox-gl";
 import { Map } from "mapbox-gl";
 import { useContext, useLayoutEffect, useRef } from "react"
