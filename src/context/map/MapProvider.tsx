@@ -1,8 +1,9 @@
 import { useReducer } from "react"
 
-import { Map, Marker } from "mapbox-gl"
+import { Map, Marker, Popup } from "mapbox-gl"
 import { MapContext } from "./MapContext"
 import { mapReducer } from "./mapReducer"
+
 
 
 export interface MapState {
@@ -24,9 +25,18 @@ export const MapProvider = ({children} : Props) => {
 
 
     const setMap = ( map : Map ) => {
+    const myLocationPoup = new Popup()
 
-        new Marker()
+        .setHTML(`
+           <h4>Aquí estoy</h4>
+           <p>En algún lugar del planeta</p>
+           `);
+
+        new Marker({
+          color: '#61DAFB'
+        })
            .setLngLat(  map.getCenter() )
+           .setPopup(myLocationPoup)
            .addTo ( map )
         
         dispatch({type: 'setMap', payload: map})
@@ -42,3 +52,7 @@ export const MapProvider = ({children} : Props) => {
     </MapContext.Provider>
   )
 }
+function setHTML(arg0: string) {
+  throw new Error("Function not implemented.")
+}
+

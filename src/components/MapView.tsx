@@ -1,3 +1,4 @@
+import mapboxgl from "mapbox-gl";
 import { Map } from "mapbox-gl";
 import { useContext, useLayoutEffect, useRef } from "react"
 import { MapContext, PlacesContext } from '../context';
@@ -8,6 +9,8 @@ import { Loading } from "./Loading";
 
 
 export const MapView = () => {
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiamFlbGVzcGlub3NhIiwiYSI6ImNsYWlmZzRmMDAyM28zbnMyMzc1NjliemgifQ.GX2N9WbENycS_4D8nwfifw';
 
   const { isLoading, userLocation } = useContext(PlacesContext);
 
@@ -20,7 +23,7 @@ export const MapView = () => {
       
       const map = new Map({
         container: mapDiv.current!,
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/dark-v10',
         center: userLocation,
         zoom: 14
       })
