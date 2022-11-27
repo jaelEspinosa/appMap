@@ -1,4 +1,6 @@
-import { Map } from "mapbox-gl";
+//@ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import { Map } from "!mapbox-gl";
 import { createContext } from "react";
 
 
@@ -9,7 +11,8 @@ import { createContext } from "react";
     map?:Map,
 
     // methods
-    setMap: (map: Map) => void
+    setMap: (map: Map) => void,
+    getRouteBetweenPoints: (start: [number, number], end: [number, number]) => Promise<void>
 
     
 }
