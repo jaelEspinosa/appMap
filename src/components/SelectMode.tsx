@@ -15,13 +15,13 @@ export const SelectMode = () => {
   return (
     <div className='select-mode'>
       <label htmlFor="light">Light</label>
-      <input onClick={ onChangeTheme } name='light' type="radio" value='mapbox://styles/mapbox/streets-v12' />
+      <input onClick={ onChangeTheme } id='light' name='theme' type="radio" value='mapbox://styles/mapbox/streets-v12' />
       
       <label htmlFor="dark">Dark</label>
-      <input onClick={ onChangeTheme } name='dark'type="radio" value='mapbox://styles/mapbox/dark-v11' />
+      <input onClick={ onChangeTheme } id='dark' name='theme'type="radio" value='mapbox://styles/mapbox/dark-v11' />
 
-      <label htmlFor="dark">Satelite</label>
-      <input onClick={ onChangeTheme } name='satellite'type="radio" value='mapbox://styles/mapbox/satellite-streets-v12' />
+      <label htmlFor="satellite">Satelite</label>
+      <input onClick={ onChangeTheme } id='satellite' name='theme'type="radio" value='mapbox://styles/mapbox/satellite-streets-v12' />
      {/*  <select
          className='select-mode'
          onClick={e => onChangeTheme(e)}
