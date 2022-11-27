@@ -11,6 +11,7 @@ export interface PlacesState {
     userLocation?:[number, number];
     isLoadingPlaces: boolean;
     places: Feature[];
+    showDirections: boolean;
 
 }
 
@@ -19,6 +20,7 @@ const INITIAL_STATE: PlacesState = {
     userLocation: undefined,
     isLoadingPlaces: false,
     places: [],
+    showDirections:true
 
 }
 
@@ -56,13 +58,23 @@ export const PlacesProvider = ({children}: Props) => {
 
     return resp.data.features
   }
+
+  const setShowDirections = () =>{
+    dispatch({type:'ShowDirections'})
+  }
   
+  const setHideDirections = () =>{
+    dispatch({type: 'HideDirections'})
+  }
   return (
     <PlacesContext.Provider value={{
         ...state,
 
         //Methods
         searchPlacesByTerm,
+        setShowDirections,
+        setHideDirections,
+
     }}>
      { children }
     </PlacesContext.Provider>

@@ -9,12 +9,15 @@ import { SearchResults } from './SearchResults';
 
 export const SearchBar = () => {
  
-  const { searchPlacesByTerm, places } = useContext(PlacesContext)
+  const { searchPlacesByTerm, places, setShowDirections } = useContext(PlacesContext)
+  
+ 
 
   const debounceRef  = useRef<NodeJS.Timeout>()
 
   const onQueryChanged = (event:ChangeEvent<HTMLInputElement>)=>{
-
+ 
+    
     if (debounceRef.current ) {
       clearTimeout ( debounceRef.current );
     }
@@ -33,6 +36,7 @@ export const SearchBar = () => {
             placeholder='buscar....'
             type="text" 
             onChange={ onQueryChanged }
+            onClick={ setShowDirections }
             />
      
     {places && <SearchResults />}  

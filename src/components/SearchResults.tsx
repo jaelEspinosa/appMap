@@ -7,8 +7,9 @@ import { LoadingPlaces } from './LoadingPlaces';
 
 export const SearchResults = () => {
 
-    const { places, isLoadingPlaces,userLocation } = useContext(PlacesContext)
-    const [isActive, setIsActive] = useState('')
+    const { places, isLoadingPlaces,userLocation, showDirections, setHideDirections, setShowDirections } = useContext(PlacesContext)
+    const [isActive, setIsActive] = useState('');
+    
 
     const { map, getRouteBetweenPoints } = useContext(MapContext)
 
@@ -33,11 +34,17 @@ export const SearchResults = () => {
 
     const getRoute = (place: Feature ) =>{
         if(!userLocation) return;
-        const [lng, lat] = place.center
+        setHideDirections()
+        const [lng, lat] = place.center;
+
 
         getRouteBetweenPoints(userLocation,[lng, lat] )
     }
+    
+    if (!showDirections) return <></>
+    
     return (
+        
         <ul className='list-group mt-3'>
 
             {

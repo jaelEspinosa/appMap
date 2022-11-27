@@ -6,6 +6,8 @@ type PlacesAction  =
 |{type: 'setUserLocation', payload: [number, number]}
 |{type: 'setLoadingPlaces' }
 |{type: 'setPlaces', payload: Feature[]}
+|{type: 'ShowDirections'}
+|{type: 'HideDirections'}
 
 export const placesReducer = (state: PlacesState, action: PlacesAction):PlacesState=>{
 
@@ -28,7 +30,17 @@ export const placesReducer = (state: PlacesState, action: PlacesAction):PlacesSt
                 ...state,
                 isLoadingPlaces: false,
                 places: action.payload
-            } 
+            }
+        case 'ShowDirections':
+            return{
+                ...state,
+                showDirections: true
+            }     
+        case 'HideDirections':
+                return{
+                    ...state,
+                    showDirections: false
+                }     
 
         default: 
         return state

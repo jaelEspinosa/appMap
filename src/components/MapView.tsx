@@ -20,6 +20,8 @@ export const MapView = () => {
 
   const {setMap} = useContext(MapContext)
 
+  const { setHideDirections }= useContext(PlacesContext)
+
   const mapDiv = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
@@ -45,6 +47,7 @@ export const MapView = () => {
 
   return (
     <div
+      onClick={setHideDirections}
       ref={mapDiv}
       style={{
         
