@@ -17,7 +17,7 @@
     z-index:999;
     box-shadow:0px 5px 10px rgba(0, 0, 0, 0.3) ;
     width: 250px;
-    height: 600px;
+    max-height: 550px;
     padding: 5px;
     border-radius: 5px;
     overflow-y: scroll;
@@ -41,4 +41,21 @@
 
 .pointer {
     cursor: pointer;
+}
+
+.position{
+    position: fixed;
+    top:20px;
+    right: 20px;
+    z-index:999 
+}
+
+@media(max-width:420px){
+    .position{
+       font-size: 12px;
+    }
+    .search-container{
+        font-size: 12px;
+        width:200px
+    }
 }

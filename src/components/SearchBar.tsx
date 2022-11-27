@@ -17,7 +17,7 @@ export const SearchBar = () => {
 
   const onQueryChanged = (event:ChangeEvent<HTMLInputElement>)=>{
  
-    
+    setShowDirections()
     if (debounceRef.current ) {
       clearTimeout ( debounceRef.current );
     }
