@@ -7,7 +7,7 @@ import { LoadingPlaces } from './LoadingPlaces';
 
 export const SearchResults = () => {
 
-    const { places, isLoadingPlaces,userLocation, showDirections, setHideDirections, setShowDirections } = useContext(PlacesContext)
+    const { places, isLoadingPlaces,userLocation, showDirections, setHideDirections } = useContext(PlacesContext)
     const [isActive, setIsActive] = useState('');
     
 
