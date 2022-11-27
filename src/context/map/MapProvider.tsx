@@ -14,7 +14,8 @@ import { DirectionsResponse } from '../../interfaces/directions';
 export interface MapState {
     isMapReady: boolean,
     map?: Map,
-    markers: Marker[]
+    markers: Marker[],
+    theme: string
 }
 interface Props{
     children: JSX.Element | JSX.Element[]
@@ -23,7 +24,8 @@ interface Props{
 const INITIAL_STATE : MapState = {
     isMapReady : false,
     map: undefined,
-    markers: []
+    markers: [],
+    theme: 'mapbox://styles/mapbox/streets-v12'
 } 
 
 export const MapProvider = ({children} : Props) => {
@@ -152,12 +154,18 @@ export const MapProvider = ({children} : Props) => {
 
     }
 
+  const onSetTheme = (theme:string) =>{
+    dispatch({type:'setTheme', payload:theme})
+  }  
+
   return (
     <MapContext.Provider value = {{
        ...state,
 
        setMap,
-       getRouteBetweenPoints
+       getRouteBetweenPoints,
+       onSetTheme
+
     }} >
       {children}
     </MapContext.Provider>

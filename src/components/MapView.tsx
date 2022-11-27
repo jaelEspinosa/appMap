@@ -18,25 +18,26 @@ export const MapView = () => {
 
   const { isLoading, userLocation } = useContext(PlacesContext);
 
-  const {setMap} = useContext(MapContext)
+  const {setMap, theme } = useContext(MapContext)
 
   const { setHideDirections }= useContext(PlacesContext)
 
   const mapDiv = useRef<HTMLDivElement>(null)
+ 
 
   useLayoutEffect(() => {
     if( !isLoading){
       
       const map = new Map({
         container: mapDiv.current!,
-        style: 'mapbox://styles/mapbox/dark-v10',
+        style: theme,
         center: userLocation,
         zoom: 14
       })
     setMap(map)
     }
     
-  }, [ isLoading ])
+  }, [ isLoading, theme ])
   
   if (isLoading) {
     return (
@@ -59,6 +60,8 @@ export const MapView = () => {
       }}
     >
       {userLocation?.join(',')}
+
+     
     </div>
   )
 }

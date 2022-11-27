@@ -8,6 +8,7 @@ import { MapState } from "./MapProvider";
 type MapAction = 
   |{type: 'setMap', payload: Map }
   |{type: 'setMarkers', payload: Marker[] }
+  |{type: 'setTheme', payload: string}
 
 
 export const mapReducer = (state : MapState, action: MapAction ):MapState =>{
@@ -24,7 +25,12 @@ export const mapReducer = (state : MapState, action: MapAction ):MapState =>{
             return{
                 ...state,
                 markers : action.payload
-            }    
+            }
+        case 'setTheme':
+            return{
+                ...state,
+                theme: action.payload
+            }        
 
         default:
             return state;

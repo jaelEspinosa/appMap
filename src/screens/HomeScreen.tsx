@@ -1,5 +1,6 @@
 
 import { BtnMyLocation, MapView, ReactLogo, SearchBar } from '../components'
+import { SelectMode } from '../components/SelectMode'
 
 
 
@@ -8,6 +9,7 @@ export const HomeScreen = () => {
     <div>
       <MapView/>
       <SearchBar />
+      <SelectMode />
       <BtnMyLocation />
       <ReactLogo />
     </div>

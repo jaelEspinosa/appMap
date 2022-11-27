@@ -66,7 +66,7 @@ export const SearchResults = () => {
                         <button 
                               onClick={()=>getRoute(place)}
                               className={`btn ${isActive === place.id ? 'btn-outline-light' : 'btn-outline-primary'} btn-sm`}>
-                            Direcciones
+                            Cómo llegar
                         </button>
                     </li>
                 ))
